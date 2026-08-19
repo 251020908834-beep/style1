@@ -1,0 +1,131 @@
+﻿/* =============================================
+   BASE STYLES – Mobile first (< 772px)
+   Mỗi .card chiếm toàn bộ chiều rộng, xếp dọc
+   ============================================= */
+
+/* Reset cơ bản */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #2c7be5;
+  color: #fff;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Main – Mobile: xếp dọc (column) */
+main {
+  display: flex;
+  flex-direction: column;   /* Mobile: xếp theo chiều dọc */
+  align-items: center;
+  gap: 20px;
+  padding: 24px 16px;
+}
+
+/* Card */
+.card {
+  width: 100%;              /* Mobile: card chiếm 100% */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Hình ảnh trong card – Mobile: không giới hạn chiều cao */
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Nội dung card */
+.card-body {
+  padding: 16px;
+}
+
+.card-body h2 {
+  font-size: 1.2rem;
+  color: #2c7be5;
+  margin-bottom: 8px;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #ccc;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  margin-top: 24px;
+}
+
+
+/* =============================================
+   MEDIA QUERY #1 – Tablet view (>= 772px)
+   Mỗi .card chiếm 45% chiều rộng, xếp ngang 2 cột
+   Hình ảnh không quá 30% chiều cao viewport
+   ============================================= */
+@media screen and (min-width: 772px) {
+  main {
+    flex-direction: row;    /* Chuyển sang xếp ngang */
+    flex-wrap: wrap;        /* Cho phép xuống hàng */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .card {
+    width: 45%;             /* Tablet: mỗi card chiếm 45% */
+  }
+
+  .card img {
+    width: 100%;
+    max-height: 30vh;       /* Hình ảnh không quá 30% chiều cao viewport */
+    object-fit: cover;
+  }
+}
+
+
+/* =============================================
+   MEDIA QUERY #2 – Large screen view (>= 998px)
+   Mỗi .card chiếm 30% chiều rộng, xếp ngang 3 cột
+   ============================================= */
+@media screen and (min-width: 998px) {
+  main {
+    padding: 40px 32px;
+    gap: 28px;
+  }
+
+  .card {
+    width: 30%;             /* Large screen: mỗi card chiếm 30% */
+  }
+}
